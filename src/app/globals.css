@@ -5,14 +5,25 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* White overscroll area */
+    background-color: white;
   }
-  
+ 
   body {
     @apply bg-white text-brand-black font-inter antialiased;
+    /* Prevent overscroll bounce on some browsers */
+    overscroll-behavior: none;
+    /* White background for overscroll areas */
+    background-color: white;
   }
-  
+ 
   h1, h2, h3, h4, h5, h6 {
     @apply font-exo2;
+  }
+
+  /* Ensure white background above content */
+  #__next, .main-content {
+    background-color: white;
   }
 }
 
@@ -20,11 +31,11 @@
   .btn-primary {
     @apply px-8 py-3 bg-brand-red hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-200;
   }
-  
+ 
   .btn-secondary {
     @apply px-8 py-3 border-2 border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-semibold rounded-lg transition-all duration-200;
   }
-  
+ 
   .card-hover {
     @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
   }
@@ -34,16 +45,29 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
-
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #ef4530;
   border-radius: 3px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #d73527;
+}
+
+/* White overscroll areas for WebKit browsers */
+html {
+  background: white;
+}
+body {
+  background: white;
+}
+
+/* iOS Safari overscroll fix */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
+  }
 }

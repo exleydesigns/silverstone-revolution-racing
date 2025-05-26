@@ -16,7 +16,7 @@ export default function Hero({ isLoading = false }) {
           quality={90}
         />
         {/* Stronger overlay for better readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/70" />
       </div>
 
       {/* Content */}
