@@ -1,0 +1,19 @@
+{
+  "socialLinks": [
+    {
+      "name": "Instagram",
+      "href": "https://instagram.com/silverstonerevolution",
+      "icon": "Instagram"
+    },
+    {
+      "name": "LinkedIn",
+      "href": "https://linkedin.com/company/silverstone-revolution",
+      "icon": "Linkedin"
+    },
+    {
+      "name": "TikTok",
+      "href": "https://tiktok.com/@silverstonerevolution",
+      "icon": "TikTok"
+    }
+  ]
+}
