@@ -22,8 +22,8 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Save scroll position when clicking sponsor
-  const handleSponsorClick = () => {
+  // Save scroll position when clicking partner
+  const handlePartnerClick = () => {
     sessionStorage.setItem('scrollPosition', window.scrollY.toString())
     sessionStorage.setItem('referrerPage', '/')
   }
@@ -72,7 +72,7 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
           />
         </motion.div>
 
-        {/* Single Sponsor Matrix Card */}
+        {/* Single Partner Matrix Card */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -88,7 +88,7 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
               className="col-span-2 md:col-span-1 group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-6 md:p-12 lg:p-16 border-r border-gray-200 flex items-center justify-center"
               style={{ minHeight: '120px' }}
             >
-              <Link href="/sponsors/silverstone" onClick={handleSponsorClick} className="flex items-center justify-center w-full h-full">
+              <Link href="/partners/silverstone" onClick={handlePartnerClick} className="flex items-center justify-center w-full h-full">
                 <div className="relative w-full h-16 md:h-24 lg:h-32 flex items-center justify-center">
                   <Image
                     src="/images/logos/silverstone.webp"
@@ -106,7 +106,7 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
               className="col-span-1 group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-6 md:p-12 lg:p-16 flex items-center justify-center"
               style={{ minHeight: '120px' }}
             >
-              <Link href="/sponsors/dla-town-planning" onClick={handleSponsorClick} className="flex items-center justify-center w-full h-full">
+              <Link href="/partners/dla-town-planning" onClick={handlePartnerClick} className="flex items-center justify-center w-full h-full">
                 <div className="relative w-full h-16 md:h-24 lg:h-32 flex items-center justify-center">
                   <Image
                     src={isMobile ? "/images/logos/dla-square.webp" : "/images/logos/dla.webp"}
@@ -133,7 +133,7 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
                 `}
                 style={{ minHeight: '80px' }}
               >
-                <Link href={`/sponsors/${sponsor.id}`} onClick={handleSponsorClick} className="flex items-center justify-center w-full h-full">
+                <Link href={`/partners/${sponsor.id}`} onClick={handlePartnerClick} className="flex items-center justify-center w-full h-full">
                   <div className="relative w-full h-10 md:h-12 flex items-center justify-center">
                     <Image
                       src={sponsor.logo}
@@ -161,7 +161,7 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
                 `}
                 style={{ minHeight: '60px' }}
               >
-                <Link href={`/sponsors/${sponsor.id}`} onClick={handleSponsorClick} className="flex items-center justify-center w-full h-full">
+                <Link href={`/partners/${sponsor.id}`} onClick={handlePartnerClick} className="flex items-center justify-center w-full h-full">
                   <div className="relative w-full h-8 md:h-10 flex items-center justify-center">
                     <Image
                       src={sponsor.logo}

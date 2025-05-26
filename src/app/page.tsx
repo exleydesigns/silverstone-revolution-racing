@@ -5,7 +5,7 @@ import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
 import CarShowcase from '@/components/sections/CarShowcase'
-import Sponsors from '@/components/sections/Sponsors'
+import Partners from '@/components/sections/Partners'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -27,7 +27,7 @@ export default function Home() {
       <Hero isLoading={isLoading} />
       <About isLoading={isLoading} />
       <CarShowcase isLoading={isLoading} />
-      <Sponsors isLoading={isLoading} />
+      <Partners isLoading={isLoading} />
     </>
   )
 }

@@ -14,8 +14,8 @@ export default function PartnersPage() {
     setIsLoading(false)
   }
 
-  // Save scroll position when clicking sponsor
-  const handleSponsorClick = () => {
+  // Save scroll position when clicking partner
+  const handlePartnerClick = () => {
     sessionStorage.setItem('scrollPosition', window.scrollY.toString())
     sessionStorage.setItem('referrerPage', '/partners')
   }
@@ -63,7 +63,7 @@ export default function PartnersPage() {
       <div className="pt-20 min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           
-          {/* Header - Animate immediately, no scroll trigger */}
+          {/* Header */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -109,7 +109,7 @@ export default function PartnersPage() {
                   key={sponsor.id}
                   variants={cardVariants}
                 >
-                  <Link href={`/sponsors/${sponsor.id}`} onClick={handleSponsorClick}>
+                  <Link href={`/partners/${sponsor.id}`} onClick={handlePartnerClick}>
                     <motion.div
                       className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer group h-full"
                       whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -162,7 +162,7 @@ export default function PartnersPage() {
                   key={sponsor.id}
                   variants={cardVariants}
                 >
-                  <Link href={`/sponsors/${sponsor.id}`} onClick={handleSponsorClick}>
+                  <Link href={`/partners/${sponsor.id}`} onClick={handlePartnerClick}>
                     <motion.div
                       className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 cursor-pointer group h-full"
                       whileHover={{ y: -3, transition: { duration: 0.2 } }}
@@ -214,7 +214,7 @@ export default function PartnersPage() {
                   key={sponsor.id}
                   variants={cardVariants}
                 >
-                  <Link href={`/sponsors/${sponsor.id}`} onClick={handleSponsorClick}>
+                  <Link href={`/partners/${sponsor.id}`} onClick={handlePartnerClick}>
                     <motion.div
                       className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 cursor-pointer group h-full"
                       whileHover={{ y: -2, transition: { duration: 0.2 } }}

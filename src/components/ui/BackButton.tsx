@@ -27,7 +27,7 @@ export default function BackButton() {
   }, [])
 
   const handleBackClick = () => {
-    sessionStorage.setItem('fromSponsor', 'true')
+    sessionStorage.setItem('fromPartner', 'true')
   }
 
   return (

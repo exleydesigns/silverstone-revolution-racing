@@ -47,20 +47,20 @@ export default function ScrollManager() {
   useEffect(() => {
     // Handle scroll position restoration
     const isMainPage = ['/', '/partners', '/team', '/progress', '/net-zero', '/contact'].includes(pathname)
-    // const isSponsorDetail = pathname.startsWith('/sponsors/') && pathname.split('/').length === 3
+    // const isPartnerDetail = pathname.startsWith('/partners/') && pathname.split('/').length === 3
     
     if (isMainPage) {
-      // Check if we're returning from a sponsor detail
+      // Check if we're returning from a partner detail
       const savedScrollPosition = sessionStorage.getItem('scrollPosition')
-      const isReturningFromSponsor = sessionStorage.getItem('fromSponsor') === 'true'
+      const isReturningFromPartner = sessionStorage.getItem('fromPartner') === 'true'
       
-      if (isReturningFromSponsor && savedScrollPosition) {
+      if (isReturningFromPartner && savedScrollPosition) {
         // Small delay to ensure page is rendered
         setTimeout(() => {
           window.scrollTo(0, parseInt(savedScrollPosition))
           // Clean up session storage
           sessionStorage.removeItem('scrollPosition')
-          sessionStorage.removeItem('fromSponsor')
+          sessionStorage.removeItem('fromPartner')
           sessionStorage.removeItem('referrerPage')
         }, 50)
       } else {
@@ -68,7 +68,7 @@ export default function ScrollManager() {
         window.scrollTo(0, 0)
       }
     }
-    // Don't scroll for sponsor detail pages - preserve position
+    // Don't scroll for partner detail pages - preserve position
     
   }, [pathname])
   
