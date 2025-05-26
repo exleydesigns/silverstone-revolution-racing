@@ -63,7 +63,7 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
             <div className="flex-shrink-0">
               <Link href="/">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logos/logo.webp"
                   alt="Silverstone Revolution Racing"
                   width={200}
                   height={60}

@@ -1,0 +1,50 @@
+{
+  "teamName": "Silverstone Revolution Racing",
+  "tagline": "Professional STEM Racing team competing at the highest level from the heart of British Motorsport",
+  "story": [
+    "We are 6 dedicated A-Level students from Silverstone UTC, united by our passion for engineering, innovation, and motorsport excellence. Our team represents the next generation of STEM leaders, combining technical expertise with entrepreneurial spirit.",
+    "Last season, we achieved remarkable success in the Development division - securing 2nd place at West Midlands Regionals, earning 7th place at UK Nationals, and winning Best Pit Display. This made us the most successful team in our school's history.",
+    "Now competing in the Professional division, we're setting our sights on the world stage. Every decision we make, every component we design, and every partnership we forge is driven by our ultimate goal: representing Great Britain at the World Finals."
+  ],
+  "keyStats": [
+    {
+      "value": "2nd",
+      "label": "Regional Place"
+    },
+    {
+      "value": "7th",
+      "label": "National Place"
+    },
+    {
+      "value": "100%",
+      "label": "Carbon Neutral"
+    }
+  ],
+  "stemRacing": {
+    "description": "STEM Racing is the rebranding of F1 In Schools, an international competition sponsored by Formula 1 where teams design, manufacture, and market miniature gas-powered Formula One cars. We're judged by industry professionals across multiple disciplines, making it one of the most comprehensive STEM challenges available to students.",
+    "elements": [
+      "Pit Display Design",
+      "Brand Identity",
+      "Car Manufacturing Quality",
+      "Race Performance",
+      "Design Portfolios",
+      "Engineering Processes",
+      "Enterprise & Marketing",
+      "Verbal Presentations"
+    ]
+  },
+  "values": [
+    {
+      "name": "Innovation",
+      "description": "Our team's ability to generate fresh concepts and develop new ideas that push the boundaries of what's possible in student motorsport."
+    },
+    {
+      "name": "Ambition", 
+      "description": "Striving for excellence in everything we do, always aiming for the top and never settling for mediocrity."
+    },
+    {
+      "name": "Integrity",
+      "description": "Staying true to our core beliefs as a team, racing in an admirable manner, and conducting ourselves with professionalism."
+    }
+  ]
+}

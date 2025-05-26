@@ -1,0 +1,26 @@
+{
+  "modelNumber": "RR3",
+  "description": "Our third-generation racing car, engineered for maximum performance in the Professional division. Every millimetre optimised for speed.",
+  "performanceStats": [
+    {
+      "value": "40+",
+      "metric": "Top Speed",
+      "unit": "mph"
+    },
+    {
+      "value": "0.8",
+      "metric": "Reaction Time",
+      "unit": "seconds"
+    },
+    {
+      "value": "20",
+      "metric": "Track Length",
+      "unit": "metres"
+    },
+    {
+      "value": "CO2",
+      "metric": "Propulsion",
+      "unit": "gas powered"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Footer from '@/components/layout/Footer'
+import ScrollManager from '@/components/ui/ScrollManager'
 
 export const metadata: Metadata = {
   title: 'Silverstone Revolution Racing | F1 in Schools Team',
@@ -30,6 +31,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="antialiased bg-white">
+        <ScrollManager />
         <main className="main-content bg-white">{children}</main>
         <Footer />
       </body>

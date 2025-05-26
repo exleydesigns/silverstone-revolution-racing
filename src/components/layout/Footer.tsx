@@ -41,11 +41,11 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/images/logo.png"
+                src="/images/logos/white-logo.webp"
                 alt="Silverstone Revolution Racing"
                 width={150}
                 height={50}
-                className="h-12 w-auto brightness-0 invert"
+                className="h-12 w-auto"
               />
             </div>
             <p className="text-gray-300 font-inter text-sm mb-3">

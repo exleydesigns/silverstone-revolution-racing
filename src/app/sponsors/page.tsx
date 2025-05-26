@@ -1,13 +1,10 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import LoadingSpinner from '@/components/ui/LoadingSpinner'
 import Navbar from '@/components/layout/Navbar'
-import Hero from '@/components/sections/Hero'
-import About from '@/components/sections/About'
-import CarShowcase from '@/components/sections/CarShowcase'
 import Sponsors from '@/components/sections/Sponsors'
 
-export default function Home() {
+export default function SponsorsPage() {
   const [isLoading, setIsLoading] = useState(true)
 
   const handleLoadingComplete = () => {
@@ -24,10 +21,9 @@ export default function Home() {
       )}
       
       <Navbar isLoading={isLoading} />
-      <Hero isLoading={isLoading} />
-      <About isLoading={isLoading} />
-      <CarShowcase isLoading={isLoading} />
-      <Sponsors isLoading={isLoading} />
+      <div className="pt-20">
+        <Sponsors isLoading={isLoading} />
+      </div>
     </>
   )
 }
