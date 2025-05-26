@@ -18,20 +18,18 @@ export default function Home() {
      
       <Navbar isLoading={isLoading} />
      
-      <div className="pt-20">
-        <Hero isLoading={isLoading} />
-       
-        <section className="py-20 px-4 max-w-7xl mx-auto">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold font-exo2 text-brand-black mb-6">
-              Ready for the next sections!
-            </h2>
-            <p className="text-lg font-inter text-gray-600 max-w-2xl mx-auto">
-              Hero now animates after loading with perfect left alignment and larger mobile text.
-            </p>
-          </div>
-        </section>
-      </div>
+      <Hero isLoading={isLoading} />
+     
+      <section className="py-20 px-4 max-w-7xl mx-auto">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold font-exo2 text-brand-black mb-6">
+            Ready for the next sections!
+          </h2>
+          <p className="text-lg font-inter text-gray-600 max-w-2xl mx-auto">
+            Clean, professional hero that works beautifully on all devices.
+          </p>
+        </div>
+      </section>
     </>
   )
 }
