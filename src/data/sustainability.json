@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "title": "Net Zero Racing",
+    "subtitle": "Leading the way in sustainable motorsport",
+    "description": "We're proud to be a 100% carbon neutral racing team, demonstrating that high-performance motorsport and environmental responsibility can go hand in hand."
+  },
+  "partnership": {
+    "title": "Our Sustainability Partner",
+    "partner": "TwoEighty",
+    "website": "https://www.twoeighty.co.uk/",
+    "description": "To maximise the sustainability of our team and design, we partnered with TwoEighty, a leading Sustainability Consultancy. Using the Greenhouse Gas Protocol, we calculated our complete carbon footprint and achieved carbon neutral status through their VCS Gold Standard Carbon Offsetting Programme."
+  },
+  "achievements": {
+    "title": "Our Achievements",
+    "stats": [
+      {
+        "value": "100%",
+        "label": "Carbon Neutral",
+        "description": "Complete carbon neutrality achieved"
+      },
+      {
+        "value": "1.75",
+        "label": "Tonnes CO2",
+        "description": "Total emissions calculated and offset"
+      },
+      {
+        "value": "2",
+        "label": "Trees Planted",
+        "description": "Contributing to reforestation efforts"
+      },
+      {
+        "value": "3",
+        "label": "Emission Scopes",
+        "description": "Comprehensive analysis covering all impacts"
+      }
+    ]
+  },
+  "carbonFootprint": {
+    "title": "Our Carbon Footprint Analysis",
+    "total": "1,750 kgCO2e",
+    "breakdown": [
+      {
+        "scope": "Scope 3: Commuting",
+        "amount": "1,012",
+        "unit": "kgCO2e",
+        "percentage": 58,
+        "description": "Team commuting to college over 6-week design period",
+        "color": "#ef4530"
+      },
+      {
+        "scope": "Scope 2: Electricity",
+        "amount": "12.4",
+        "unit": "kgCO2e", 
+        "percentage": 22,
+        "description": "Computer design, milling equipment and wind tunnel testing",
+        "color": "#9bb8d3"
+      },
+      {
+        "scope": "Scope 3: Materials",
+        "amount": "10.5",
+        "unit": "kgCO2e",
+        "percentage": 15,
+        "description": "Embodied carbon in materials used for car construction",
+        "color": "#2d2926"
+      },
+      {
+        "scope": "Scope 1: CO2 Canisters",
+        "amount": "0.15",
+        "unit": "kgCO2e",
+        "percentage": 5,
+        "description": "Direct emissions from CO2 canisters for car propulsion",
+        "color": "#64748b"
+      }
+    ]
+  },
+  "initiatives": {
+    "title": "Our Sustainability Initiatives",
+    "actions": [
+      {
+        "title": "Sustainable Transport",
+        "description": "All team members prioritised public transport for commuting to reduce our largest emission source.",
+        "icon": "transport"
+      },
+      {
+        "title": "Eco-Friendly Materials",
+        "description": "Used sustainable filaments for 3D printing and carefully selected materials with lower embodied carbon.",
+        "icon": "materials"
+      },
+      {
+        "title": "Renewable Energy Advocacy",
+        "description": "Advocated for our college to switch to a renewable energy tariff for all school equipment.",
+        "icon": "energy"
+      },
+      {
+        "title": "Carbon Offsetting",
+        "description": "Partnered with TwoEighty to offset our complete carbon footprint through verified gold standard programmes.",
+        "icon": "offset"
+      }
+    ]
+  },
+  "future": {
+    "title": "Looking Forward",
+    "description": "Our commitment to sustainability doesn't end here. We're continuously looking for ways to reduce our environmental impact while maintaining our competitive edge in STEM Racing.",
+    "goals": [
+      "Reduce commuting emissions through better transport planning",
+      "Source materials with even lower embodied carbon",
+      "Advocate for renewable energy across all educational facilities",
+      "Share our sustainability framework with other F1 in Schools teams"
+    ]
+  }
+}

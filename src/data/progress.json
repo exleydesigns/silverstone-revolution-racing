@@ -1,0 +1,143 @@
+{
+  "hero": {
+    "title": "Our Journey",
+    "subtitle": "From concept to competition",
+    "description": "Follow our progression from a group of passionate students to one of the UK's most successful F1 in Schools teams."
+  },
+  "divisions": [
+    {
+      "name": "Development Class",
+      "subtitle": "Our Foundation Season",
+      "description": "Where it all began - learning, growing, and achieving beyond our expectations",
+      "status": "completed",
+      "color": "#9bb8d3",
+      "milestones": [
+        {
+          "title": "Team Formation",
+          "date": "October 21, 2024",
+          "status": "completed",
+          "description": "Six A-Level students from Silverstone UTC came together with a shared vision of motorsport excellence and STEM innovation.",
+          "details": [
+            "Established roles and responsibilities across engineering, design, marketing, and finance",
+            "Set ambitious goals for our debut season",
+            "Began initial car design concepts and research"
+          ],
+          "achievement": "Foundation"
+        },
+        {
+          "title": "Regional Competition",
+          "date": "February 6, 2025",
+          "status": "completed",
+          "description": "Secured 2nd place at West Midlands Regionals and earned nomination for Best Pit Display.",
+          "details": [
+            "Competed against established teams with our debut car",
+            "Impressed judges with innovative pit display design",
+            "Qualified for UK National Finals",
+            "Became the highest-placing team from Silverstone UTC"
+          ],
+          "achievement": "2nd Place West Midlands"
+        },
+        {
+          "title": "Carbon Neutral Certification",
+          "date": "February 20, 2025", 
+          "status": "completed",
+          "description": "Achieved 100% carbon neutrality through partnership with TwoEighty sustainability consultants.",
+          "details": [
+            "Calculated complete carbon footprint using Greenhouse Gas Protocol",
+            "Offset 1.75 tonnes of CO2 equivalent emissions",
+            "Planted two trees through verified reforestation programmes",
+            "Became pioneers in sustainable motorsport"
+          ],
+          "achievement": "100% Carbon Neutral"
+        },
+        {
+          "title": "Silverstone Partnership",
+          "date": "March 6, 2025",
+          "status": "completed", 
+          "description": "Secured title sponsorship from Silverstone Circuit - the home of British Motorsport.",
+          "details": [
+            "Gained backing from the most prestigious motorsport venue in the UK",
+            "Established credibility and professional recognition",
+            "Strengthened brand identity and team profile",
+            "Opened doors to further sponsorship opportunities"
+          ],
+          "achievement": "Title Sponsor Secured"
+        },
+        {
+          "title": "National Finals",
+          "date": "March 26, 2025",
+          "status": "completed",
+          "description": "Achieved 7th place nationally and won Best Pit Display at the UK National Finals.",
+          "details": [
+            "Competed against the UK's top F1 in Schools teams",
+            "Won Best Pit Display with innovative design featuring Meyer Sound audio",
+            "Placed 7th out of all Development Class teams nationally",
+            "Completed Development Class as the most successful team from our school"
+          ],
+          "achievement": "7th UK + Best Pit Display"
+        }
+      ]
+    },
+    {
+      "name": "Professional Class", 
+      "subtitle": "The Next Chapter",
+      "description": "Stepping up to compete at the highest level with our sights set on world finals",
+      "status": "current",
+      "color": "#ef4530",
+      "milestones": [
+        {
+          "title": "Professional Registration",
+          "date": "April 2025",
+          "status": "upcoming",
+          "description": "Official registration for Professional Class competition with enhanced requirements and global opportunities.",
+          "details": [
+            "Advanced engineering portfolio requirements",
+            "Comprehensive business plan development", 
+            "Enhanced safety and technical regulations",
+            "Pathway to World Finals qualification"
+          ],
+          "achievement": "Pro Class Entry"
+        },
+        {
+          "title": "Advanced Car Development",
+          "date": "Summer 2025",
+          "status": "upcoming",
+          "description": "Design and manufacture of our next-generation RR3 car with professional-level specifications.",
+          "details": [
+            "Advanced CFD analysis and aerodynamic optimization",
+            "Precision 5-axis CNC manufacturing",
+            "Professional-grade materials and finishing",
+            "Extensive testing and development programme"
+          ],
+          "achievement": "RR3 Launch"
+        },
+        {
+          "title": "Professional Regionals",
+          "date": "TBC 2025",
+          "status": "upcoming",
+          "description": "Competing in Professional Class regionals with qualification goals for nationals.",
+          "details": [
+            "Elevated competition standards and judging criteria",
+            "Advanced presentation and portfolio requirements",
+            "Professional-level pit display and brand execution",
+            "Regional championship qualification pathway"
+          ],
+          "achievement": "Regional Championship"
+        },
+        {
+          "title": "World Finals Qualification",
+          "date": "TBC 2025/2026",
+          "status": "target",
+          "description": "Our ultimate goal - representing Great Britain at the F1 in Schools World Finals.",
+          "details": [
+            "Compete against the world's best student teams",
+            "Showcase British engineering excellence globally",
+            "Achieve international recognition for our innovations",
+            "Inspire the next generation of STEM students"
+          ],
+          "achievement": "World Championship"
+        }
+      ]
+    }
+  ]
+}

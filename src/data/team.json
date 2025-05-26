@@ -5,5 +5,49 @@
     "location": "Towcester, England",
     "founded": "2023",
     "description": "Professional STEM Racing team competing at the highest level from the heart of British Motorsport"
-  }
+  },
+  "teamMembers": [
+    {
+      "name": "Fiona Williams",
+      "role": "Team Leader",
+      "description": "Keeps the team organised and ensures everything runs smoothly. Leads the group and fosters positive team culture.",
+      "image": "/images/team-photos/fiona-williams.webp",
+      "slug": "fiona-williams"
+    },
+    {
+      "name": "Harry Wass",
+      "role": "Design Engineer",
+      "description": "Designs the car and tests performance using CFD simulations. Focuses on innovation and precision engineering.",
+      "image": "/images/team-photos/harry-wass.webp",
+      "slug": "harry-wass"
+    },
+    {
+      "name": "Thomas Bell",
+      "role": "Materials Engineer",
+      "description": "Transforms design concepts into reality through manufacturing techniques and precision engineering. Expertise in materials and finishing processes.",
+      "image": "/images/team-photos/thomas-bell.webp",
+      "slug": "thomas-bell"
+    },
+    {
+      "name": "Amy Davies",
+      "role": "Media & Marketing",
+      "description": "Manages social media platforms and develops content. Connects the team with audience and sponsors.",
+      "image": "/images/team-photos/amy-davies.webp",
+      "slug": "amy-davies"
+    },
+    {
+      "name": "Tom Exley",
+      "role": "Graphic Designer",
+      "description": "Designs visuals including posts, pit display, and team kit. Developed and designed the website for cohesive professional look.",
+      "image": "/images/team-photos/tom-exley.webp",
+      "slug": "tom-exley"
+    },
+    {
+      "name": "Tom Williams",
+      "role": "Finance Manager",
+      "description": "Manages team budget and secures sponsorships. Key to keeping the team financially prepared and supported.",
+      "image": "/images/team-photos/tom-williams.webp",
+      "slug": "tom-williams"
+    }
+  ]
 }
