@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '375px',
+      },
       fontFamily: {
         'exo2': ['"Exo 2"', 'sans-serif'],
         'inter': ['Inter', 'sans-serif'],

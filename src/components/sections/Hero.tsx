@@ -8,7 +8,7 @@ export default function Hero({ isLoading = false }) {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/hero-bg.png"
           alt="Silverstone Revolution Racing Team"
           fill
           className="object-cover object-center"
@@ -29,9 +29,9 @@ export default function Hero({ isLoading = false }) {
             delay: isLoading ? 2.5 : 0.3 
           }}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold font-exo2 text-white mb-6">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-exo2 text-white mb-6">
             <motion.span
-              className="block leading-none drop-shadow-lg"
+              className="block leading-none drop-shadow-lg whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -42,7 +42,7 @@ export default function Hero({ isLoading = false }) {
               From the heart of
             </motion.span>
             <motion.span
-              className="block text-white leading-none italic mt-2 drop-shadow-lg"
+              className="block text-white leading-none italic mt-2 drop-shadow-lg whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -62,7 +62,7 @@ export default function Hero({ isLoading = false }) {
             duration: 0.6, 
             delay: isLoading ? 3.1 : 0.9 
           }}
-          className="text-lg sm:text-xl lg:text-2xl font-light mb-10 max-w-3xl mx-auto font-inter text-gray-100 drop-shadow-md"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl font-light mb-10 max-w-3xl mx-auto font-inter text-gray-100 drop-shadow-md"
         >
           Professional STEM Racing team competing at the highest level from Silverstone UTC
         </motion.p>
