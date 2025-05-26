@@ -2,11 +2,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-interface HeroProps {
-  isLoading?: boolean
-}
-
-export default function Hero({ isLoading = false }: HeroProps) {
+export default function Hero({ isLoading = false }) {
   return (
     <section className="relative h-[calc(100vh-5rem)] flex items-center overflow-hidden">
       {/* Background Image */}
@@ -33,7 +29,7 @@ export default function Hero({ isLoading = false }: HeroProps) {
             delay: isLoading ? 2.5 : 0.3 
           }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-exo2 mb-6 text-white italic tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-exo2 mb-6 text-white italic tracking-tight leading-tight">
             <motion.span
               className="block text-white"
               initial={{ opacity: 0, x: -30 }}
@@ -47,10 +43,10 @@ export default function Hero({ isLoading = false }: HeroProps) {
                 fontVariantLigatures: 'common-ligatures contextual'
               }}
             >
-              "From the heart of
+              &quot;From the heart of
             </motion.span>
             <motion.span
-              className="block ml-8 md:ml-12 lg:ml-16 text-white"
+              className="block ml-6 sm:ml-8 md:ml-12 lg:ml-16 text-white"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ 
@@ -62,7 +58,7 @@ export default function Hero({ isLoading = false }: HeroProps) {
                 fontVariantLigatures: 'common-ligatures contextual'
               }}
             >
-              British Motorsport"
+              British Motorsport&quot;
             </motion.span>
           </h1>
         </motion.div>
@@ -74,7 +70,7 @@ export default function Hero({ isLoading = false }: HeroProps) {
             duration: 0.8, 
             delay: isLoading ? 3.1 : 0.9 
           }}
-          className="text-xl sm:text-2xl md:text-3xl font-light mb-8 max-w-4xl font-inter text-white"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-8 max-w-4xl font-inter text-white ml-6 sm:ml-8 md:ml-12 lg:ml-16"
         >
           Professional STEM Racing team competing at the highest level from Silverstone UTC
         </motion.p>
@@ -86,7 +82,7 @@ export default function Hero({ isLoading = false }: HeroProps) {
             duration: 0.6, 
             delay: isLoading ? 3.3 : 1.1 
           }}
-          className="flex flex-col sm:flex-row gap-4"
+          className="flex flex-col sm:flex-row gap-4 ml-6 sm:ml-8 md:ml-12 lg:ml-16"
         >
           <button className="btn-primary">
             Our Story
