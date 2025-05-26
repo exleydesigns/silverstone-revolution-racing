@@ -8,7 +8,7 @@ export default function Hero({ isLoading = false }) {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-bg.png"
+          src="/images/hero-bg.jpg"
           alt="Silverstone Revolution Racing Team"
           fill
           className="object-cover object-center"
