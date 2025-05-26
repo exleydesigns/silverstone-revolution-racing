@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import sponsorData from '@/data/sponsors.json'
 
 interface SponsorsProps {
@@ -9,13 +10,31 @@ interface SponsorsProps {
 }
 
 export default function Sponsors({ isLoading = false }: SponsorsProps) {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Save scroll position when clicking sponsor
+  const handleSponsorClick = () => {
+    sessionStorage.setItem('scrollPosition', window.scrollY.toString())
+    sessionStorage.setItem('referrerPage', '/')
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.05,
-        delayChildren: isLoading ? 3.5 : 0.3
+        delayChildren: isLoading ? 0.8 : 0.3
       }
     }
   }
@@ -28,13 +47,6 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
       transition: { duration: 0.4, ease: "easeOut" }
     }
   }
-
-  // Combine all sponsors with their tier info
-  const allSponsors = [
-    ...sponsorData.sponsorCategories.primary.sponsors.map(s => ({ ...s, tier: 'primary' })),
-    ...sponsorData.sponsorCategories.secondary.sponsors.map(s => ({ ...s, tier: 'secondary' })),
-    ...sponsorData.sponsorCategories.supporting.sponsors.map(s => ({ ...s, tier: 'supporting' }))
-  ]
 
   return (
     <section className="py-20 bg-gray-50">
@@ -60,54 +72,109 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
           />
         </motion.div>
 
-        {/* Sponsor Grid */}
+        {/* Single Sponsor Matrix Card */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6"
+          className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
         >
-          {allSponsors.map((sponsor, index) => {
-            // Primary sponsors get larger size and full color
-            const isPrimary = sponsor.tier === 'primary'
-            const isSecondary = sponsor.tier === 'secondary'
-            
-            return (
+          
+          {/* Primary Partners Row */}
+          <div className="grid grid-cols-3 md:grid-cols-2 border-b border-gray-200">
+            <motion.div
+              variants={logoVariants}
+              className="col-span-2 md:col-span-1 group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-6 md:p-12 lg:p-16 border-r border-gray-200 flex items-center justify-center"
+              style={{ minHeight: '120px' }}
+            >
+              <Link href="/sponsors/silverstone" onClick={handleSponsorClick} className="flex items-center justify-center w-full h-full">
+                <div className="relative w-full h-16 md:h-24 lg:h-32 flex items-center justify-center">
+                  <Image
+                    src="/images/logos/silverstone.webp"
+                    alt="Silverstone logo"
+                    width={400}
+                    height={160}
+                    className="object-contain group-hover:scale-105 transition-transform duration-300 max-w-[95%] max-h-[95%]"
+                  />
+                </div>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              variants={logoVariants}
+              className="col-span-1 group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-6 md:p-12 lg:p-16 flex items-center justify-center"
+              style={{ minHeight: '120px' }}
+            >
+              <Link href="/sponsors/dla-town-planning" onClick={handleSponsorClick} className="flex items-center justify-center w-full h-full">
+                <div className="relative w-full h-16 md:h-24 lg:h-32 flex items-center justify-center">
+                  <Image
+                    src={isMobile ? "/images/logos/dla-square.webp" : "/images/logos/dla.webp"}
+                    alt="DLA Town Planning logo"
+                    width={isMobile ? 120 : 400}
+                    height={160}
+                    className="object-contain group-hover:scale-105 transition-transform duration-300 max-w-[95%] max-h-[95%]"
+                  />
+                </div>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Supporting Partners Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 border-b border-gray-200">
+            {sponsorData.sponsorCategories.secondary.sponsors.map((sponsor, index) => (
               <motion.div
                 key={sponsor.id}
                 variants={logoVariants}
                 className={`
-                  ${isPrimary ? 'col-span-2 row-span-2' : ''}
-                  ${isSecondary ? 'col-span-1' : ''}
+                  group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-3 md:p-6 grayscale hover:grayscale-0 flex items-center justify-center
+                  ${index < sponsorData.sponsorCategories.secondary.sponsors.length - 1 && (index + 1) % (isMobile ? 2 : 4) !== 0 ? 'border-r border-gray-200' : ''}
+                  ${index < 2 && isMobile ? 'border-b border-gray-200' : ''}
                 `}
+                style={{ minHeight: '80px' }}
               >
-                <Link href={`/sponsors/${sponsor.id}`}>
-                  <motion.div
-                    className={`
-                      bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 cursor-pointer group
-                      ${isPrimary ? 'p-8 h-32' : 'p-4 h-20'}
-                      ${!isPrimary ? 'grayscale hover:grayscale-0' : ''}
-                    `}
-                    whileHover={{ 
-                      y: isPrimary ? -6 : -3, 
-                      scale: isPrimary ? 1.02 : 1.05,
-                      transition: { duration: 0.2 } 
-                    }}
-                  >
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={sponsor.logo}
-                        alt={`${sponsor.name} logo`}
-                        fill
-                        className="object-contain group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </motion.div>
+                <Link href={`/sponsors/${sponsor.id}`} onClick={handleSponsorClick} className="flex items-center justify-center w-full h-full">
+                  <div className="relative w-full h-10 md:h-12 flex items-center justify-center">
+                    <Image
+                      src={sponsor.logo}
+                      alt={`${sponsor.name} logo`}
+                      width={140}
+                      height={56}
+                      className="object-contain group-hover:scale-105 transition-transform duration-300 max-w-[85%] max-h-[85%]"
+                    />
+                  </div>
                 </Link>
               </motion.div>
-            )
-          })}
+            ))}
+          </div>
+
+          {/* Associate Partners Row */}
+          <div className="flex flex-wrap justify-center">
+            {sponsorData.sponsorCategories.supporting.sponsors.map((sponsor, index) => (
+              <motion.div
+                key={sponsor.id}
+                variants={logoVariants}
+                className={`
+                  group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-2 md:p-4 grayscale hover:grayscale-0 flex items-center justify-center
+                  ${sponsorData.sponsorCategories.supporting.sponsors.length <= 3 ? 'w-1/3 md:w-1/6' : 'w-1/3 md:w-1/5 lg:w-1/6'}
+                  ${index < sponsorData.sponsorCategories.supporting.sponsors.length - 1 ? 'border-r border-gray-200' : ''}
+                `}
+                style={{ minHeight: '60px' }}
+              >
+                <Link href={`/sponsors/${sponsor.id}`} onClick={handleSponsorClick} className="flex items-center justify-center w-full h-full">
+                  <div className="relative w-full h-8 md:h-10 flex items-center justify-center">
+                    <Image
+                      src={sponsor.logo}
+                      alt={`${sponsor.name} logo`}
+                      width={90}
+                      height={45}
+                      className="object-contain group-hover:scale-105 transition-transform duration-300 max-w-[80%] max-h-[80%]"
+                    />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Partnership CTA */}
@@ -128,13 +195,15 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
             <p className="text-gray-600 font-inter mb-6">
               Join our journey to the World Finals and support the next generation of STEM leaders
             </p>
-            <motion.button
-              className="px-8 py-3 bg-brand-red hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300 font-inter"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get in Touch
-            </motion.button>
+            <Link href="/contact">
+              <motion.button
+                className="px-8 py-3 bg-brand-red hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300 font-inter"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get in Touch
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

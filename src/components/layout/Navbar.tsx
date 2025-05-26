@@ -51,8 +51,8 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ 
-          duration: 0.6, 
-          delay: isLoading ? 2.2 : 0.5
+          duration: 0.4, 
+          delay: isLoading ? 0.6 : 0.2  // Much faster - reduced from 2.2s to 0.6s
         }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${navbarBg}`}
       >
@@ -80,7 +80,7 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
                   <span key={item.name} className="flex items-center">
                     <Link
                       href={item.href}
-                      className="px-4 py-2 text-sm font-black tracking-tight text-brand-black hover:text-brand-red transition-colors duration-200 uppercase font-exo2"
+                      className="px-4 py-2 text-sm font-semibold tracking-tight text-brand-black hover:text-brand-red transition-colors duration-200 uppercase font-exo2"
                     >
                       {item.name}
                     </Link>
@@ -135,7 +135,7 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block px-6 py-3 text-base font-black tracking-tight text-brand-black hover:text-brand-red hover:bg-gray-50 transition-all duration-200 uppercase font-exo2"
+                    className="block px-6 py-3 text-base font-semibold tracking-tight text-brand-black hover:text-brand-red hover:bg-gray-50 transition-all duration-200 uppercase font-exo2"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}

@@ -6,16 +6,6 @@ export default function ScrollManager() {
   const pathname = usePathname()
 
   useEffect(() => {
-    // Scroll to top on page load/refresh
-    window.scrollTo(0, 0)
-  }, [])
-
-  useEffect(() => {
-    // Scroll to top on route/page changes
-    window.scrollTo(0, 0)
-  }, [pathname])
-
-  useEffect(() => {
     let hideTimer: NodeJS.Timeout | null = null
     
     const showScrollbar = () => {
@@ -53,6 +43,34 @@ export default function ScrollManager() {
       }
     }
   }, [])
+
+  useEffect(() => {
+    // Handle scroll position restoration
+    const isMainPage = ['/', '/partners', '/team', '/progress', '/net-zero', '/contact'].includes(pathname)
+    // const isSponsorDetail = pathname.startsWith('/sponsors/') && pathname.split('/').length === 3
+    
+    if (isMainPage) {
+      // Check if we're returning from a sponsor detail
+      const savedScrollPosition = sessionStorage.getItem('scrollPosition')
+      const isReturningFromSponsor = sessionStorage.getItem('fromSponsor') === 'true'
+      
+      if (isReturningFromSponsor && savedScrollPosition) {
+        // Small delay to ensure page is rendered
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(savedScrollPosition))
+          // Clean up session storage
+          sessionStorage.removeItem('scrollPosition')
+          sessionStorage.removeItem('fromSponsor')
+          sessionStorage.removeItem('referrerPage')
+        }, 50)
+      } else {
+        // Normal navigation between main pages - go to top
+        window.scrollTo(0, 0)
+      }
+    }
+    // Don't scroll for sponsor detail pages - preserve position
+    
+  }, [pathname])
   
   return null
 }

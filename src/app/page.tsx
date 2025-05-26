@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import LoadingSpinner from '@/components/ui/LoadingSpinner'
 import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/sections/Hero'
@@ -18,7 +18,7 @@ export default function Home() {
     <>
       {isLoading && (
         <LoadingSpinner 
-          minDisplayTime={1500}
+          minDisplayTime={100}
           onComplete={handleLoadingComplete}
         />
       )}

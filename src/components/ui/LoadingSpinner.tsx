@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react'
 
 interface LoadingSpinnerProps {
   minDisplayTime?: number
-  onComplete?: () => void
+  onComplete?: () => void  
 }
 
-export default function LoadingSpinner({ 
-  minDisplayTime = 1500,
-  onComplete 
+export default function LoadingSpinner({
+  minDisplayTime = 300, // Reduced from 1500ms to 300ms
+  onComplete
 }: LoadingSpinnerProps) {
   const [shouldHide, setShouldHide] = useState(false)
 
@@ -46,7 +46,7 @@ export default function LoadingSpinner({
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           />
         </div>
-        
+       
         {/* Simple text */}
         <motion.p
           className="text-brand-black font-inter text-sm tracking-wider uppercase"

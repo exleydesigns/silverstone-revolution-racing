@@ -7,7 +7,7 @@
           "id": "silverstone",
           "name": "Silverstone",
           "website": "https://www.silverstone.co.uk/",
-          "logo": "/images/sponsors/silverstone.png",
+          "logo": "/images/logos/silverstone.webp",
           "description": "The legendary home of British motorsport and our title sponsor. Silverstone Circuit has been supporting our journey from the very beginning, providing us with the inspiration and backing to compete at the highest level. Their commitment to nurturing the next generation of motorsport talent aligns perfectly with our mission.",
           "tier": "primary"
         },
@@ -15,7 +15,7 @@
           "id": "dla-town-planning",
           "name": "DLA Town Planning",
           "website": "https://dlatownplanning.com/",
-          "logo": "/images/sponsors/dla-town-planning.png",
+          "logo": "/images/logos/dla.webp",
           "description": "Leading planning consultancy providing expert advice across the UK. DLA Town Planning has been instrumental in supporting our Professional division campaign, helping us plan our route to success with the same precision they bring to their planning projects.",
           "tier": "primary"
         }
@@ -28,7 +28,7 @@
           "id": "meyer-sound",
           "name": "Meyer Sound",
           "website": "https://meyersound.com/",
-          "logo": "/images/sponsors/meyer-sound.png",
+          "logo": "/images/logos/meyer.webp",
           "description": "World-leading professional audio manufacturer. Meyer Sound's MM-4XPD speakers were crucial to our award-winning pit display at UK National Finals. Their cutting-edge audio technology helped create the immersive experience that earned us Best Pit Display.",
           "tier": "secondary"
         },
@@ -36,7 +36,7 @@
           "id": "nicab",
           "name": "Nicab",
           "website": "https://nicab.co.uk/",
-          "logo": "/images/sponsors/nicab.png",
+          "logo": "/images/logos/nicab.webp",
           "description": "Specialist electrical and automation solutions provider. Nicab's expertise in precision engineering and automation aligns with our commitment to technical excellence in every aspect of our racing programme.",
           "tier": "secondary"
         },
@@ -44,7 +44,7 @@
           "id": "figment-productions",
           "name": "Figment Productions",
           "website": "https://figmentproductions.co.uk/",
-          "logo": "/images/sponsors/figment-productions.png",
+          "logo": "/images/logos/figment.webp",
           "description": "Creative production company specialising in innovative digital content. Figment Productions has helped elevate our brand presence and storytelling, bringing our racing journey to life through compelling visual content.",
           "tier": "secondary"
         },
@@ -52,20 +52,20 @@
           "id": "twoeighty",
           "name": "TwoEighty",
           "website": "https://www.twoeighty.co.uk/",
-          "logo": "/images/sponsors/twoeighty.png",
+          "logo": "/images/logos/twoeighty.webp",
           "description": "Our dedicated sustainability consultant helping us achieve carbon neutrality. Through our partnership with TwoEighty, we've offset over two tons of carbon and planted two trees, making us 100% carbon neutral in motorsport competition.",
           "tier": "secondary"
         }
       ]
     },
     "supporting": {
-      "title": "Technical Partners",
+      "title": "Associate Partners",
       "sponsors": [
         {
           "id": "techbridge",
           "name": "Techbridge",
           "website": "https://www.techbridgeldn.com/",
-          "logo": "/images/sponsors/techbridge.png",
+          "logo": "/images/logos/techbridge.webp",
           "description": "Technology solutions provider connecting innovation with practical application. Techbridge supports our technical development and helps bridge the gap between cutting-edge design and real-world performance.",
           "tier": "supporting"
         },
@@ -73,7 +73,7 @@
           "id": "avea",
           "name": "AVEA",
           "website": null,
-          "logo": "/images/sponsors/avea.png",
+          "logo": "/images/logos/avea.webp",
           "description": "Valued technical partner supporting our engineering initiatives. AVEA's contribution to our programme demonstrates the importance of collaborative partnerships in achieving motorsport excellence.",
           "tier": "supporting"
         },
@@ -81,7 +81,7 @@
           "id": "newport-cnc",
           "name": "Newport CNC",
           "website": "https://www.newport-cnc.com/",
-          "logo": "/images/sponsors/newport-cnc.png",
+          "logo": "/images/logos/newport.webp",
           "description": "Precision CNC machining specialists providing manufacturing expertise. Newport CNC's advanced machining capabilities are essential to producing the high-quality components that make our RR3 car competitive at professional level.",
           "tier": "supporting"
         }

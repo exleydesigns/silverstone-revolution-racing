@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
+import BackButton from '@/components/ui/BackButton'
 import sponsorData from '@/data/sponsors.json'
 
 // Generate static paths for all sponsors
@@ -28,71 +28,66 @@ function findSponsor(slug: string) {
   return allSponsors.find(sponsor => sponsor.id === slug)
 }
 
-export default function SponsorPage({ params }: { params: { slug: string } }) {
-  const sponsor = findSponsor(params.slug)
+export default async function SponsorPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params
+  const sponsor = findSponsor(resolvedParams.slug)
 
   if (!sponsor) {
     notFound()
   }
 
+  const getTierName = (tier: string) => {
+    switch (tier) {
+      case 'primary': return 'Primary Partner'
+      case 'secondary': return 'Supporting Partner'
+      case 'supporting': return 'Associate Partner'
+      default: return 'Partner'
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-center h-20">
             <Link href="/" className="flex items-center">
-              <Image
+              <img
                 src="/images/logo.png"
                 alt="Silverstone Revolution Racing"
-                width={200}
-                height={60}
                 className="h-10 w-auto"
-                priority
               />
-            </Link>
-            <Link 
-              href="/sponsors"
-              className="flex items-center space-x-2 px-4 py-2 text-brand-black hover:text-brand-red transition-colors duration-200 font-inter"
-            >
-              <ArrowLeft size={20} />
-              <span>Back to Partners</span>
             </Link>
           </div>
         </div>
       </nav>
 
+      {/* Back Button */}
+      <div className="pt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <BackButton />
+        </div>
+      </div>
+
       {/* Content */}
-      <main className="pt-32 pb-20">
+      <main className="pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Sponsor Header */}
           <div className="text-center mb-12">
-            <div className="relative h-32 w-full mb-8 bg-gray-50 rounded-xl p-8">
-              <Image
-                src={sponsor.logo}
-                alt={`${sponsor.name} logo`}
-                fill
-                className="object-contain"
-                priority
-              />
+            <div className="inline-flex items-center px-4 py-2 bg-brand-red/10 text-brand-red rounded-full font-inter text-sm font-semibold mb-6">
+              {getTierName(sponsor.tier)}
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-black mb-4 font-exo2">
+            <h1 className="text-4xl md:text-5xl font-bold text-brand-black mb-6 font-exo2">
               {sponsor.name}
             </h1>
             
-            <div className="w-24 h-1 bg-brand-red mx-auto mb-6" />
-            
-            <div className="inline-flex items-center px-4 py-2 bg-brand-red/10 text-brand-red rounded-full font-inter text-sm font-semibold mb-8">
-              {sponsor.tier === 'primary' && 'Primary Partner'}
-              {sponsor.tier === 'secondary' && 'Supporting Partner'}
-              {sponsor.tier === 'supporting' && 'Technical Partner'}
-            </div>
+            <div className="w-24 h-1 bg-brand-red mx-auto mb-8" />
           </div>
 
           {/* Description */}
-          <div className="prose prose-lg max-w-none mb-12">
+          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-200 mb-8">
             <p className="text-xl text-gray-700 font-inter leading-relaxed">
               {sponsor.description}
             </p>
