@@ -1,6 +1,6 @@
 'use client'
-import { useState} from 'react'
-import LoadingSpinner from '@/components/ui/LoadingSpinner'
+import { useState, useEffect } from 'react'
+import EntryAnimation from '@/components/ui/EntryAnimation'
 import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
@@ -8,26 +8,34 @@ import CarShowcase from '@/components/sections/CarShowcase'
 import Partners from '@/components/sections/Partners'
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [showEntryAnimation, setShowEntryAnimation] = useState(true)
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false)
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      sessionStorage.setItem('hasNavigated', 'true')
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload)
+  }, [])
+
+  const handleEntryComplete = () => {
+    setShowEntryAnimation(false)
   }
 
   return (
     <>
-      {isLoading && (
-        <LoadingSpinner 
-          minDisplayTime={100}
-          onComplete={handleLoadingComplete}
-        />
+      {showEntryAnimation && (
+        <EntryAnimation onComplete={handleEntryComplete} />
       )}
       
-      <Navbar isLoading={isLoading} />
-      <Hero isLoading={isLoading} />
-      <About isLoading={isLoading} />
-      <CarShowcase isLoading={isLoading} />
-      <Partners isLoading={isLoading} />
+      <div className={showEntryAnimation ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}>
+        <Navbar />
+        <Hero />
+        <About />
+        <CarShowcase />
+        <Partners />
+      </div>
     </>
   )
 }

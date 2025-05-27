@@ -1,7 +1,7 @@
 {
   "navItems": [
     { "name": "HOME", "href": "/" },
-    { "name": "OUR PROGRESS", "href": "/progress" },
+    { "name": "OUR JOURNEY", "href": "/progress" },
     { "name": "PARTNERS", "href": "/partners" },
     { "name": "THE TEAM", "href": "/team" },
     { "name": "NET-ZERO", "href": "/net-zero" },

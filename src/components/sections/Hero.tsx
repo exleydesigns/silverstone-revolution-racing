@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-export default function Hero({ isLoading = false }) {
+export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -25,8 +25,8 @@ export default function Hero({ isLoading = false }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 0.8, 
-            delay: isLoading ? 0.8 : 0.3  // Much quicker - reduced from 2.5s
+            duration: 0.6, 
+            delay: 0.2  // Much faster - reduced from 0.8s
           }}
         >
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-exo2 text-white mb-6">
@@ -35,8 +35,8 @@ export default function Hero({ isLoading = false }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 0.6, 
-                delay: isLoading ? 1.0 : 0.5  // Reduced delays
+                duration: 0.5, 
+                delay: 0.3  // Reduced from 1.0s
               }}
             >
               From the heart of
@@ -46,8 +46,8 @@ export default function Hero({ isLoading = false }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 0.6, 
-                delay: isLoading ? 1.2 : 0.7  // Reduced delays
+                duration: 0.5, 
+                delay: 0.4  // Reduced from 1.2s
               }}
             >
               British Motorsport
@@ -59,8 +59,8 @@ export default function Hero({ isLoading = false }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 0.6, 
-            delay: isLoading ? 1.4 : 0.9  // Reduced delays
+            duration: 0.5, 
+            delay: 0.5  // Reduced from 1.4s
           }}
           className="text-base sm:text-lg md:text-xl lg:text-2xl font-light mb-10 max-w-3xl mx-auto font-inter text-gray-100 drop-shadow-md"
         >
@@ -71,8 +71,8 @@ export default function Hero({ isLoading = false }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 0.6, 
-            delay: isLoading ? 1.6 : 1.1  // Reduced delays
+            duration: 0.5, 
+            delay: 0.6  // Reduced from 1.6s
           }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
@@ -98,8 +98,8 @@ export default function Hero({ isLoading = false }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ 
-          duration: 0.8, 
-          delay: isLoading ? 1.8 : 1.3  // Reduced delays
+          duration: 0.6, 
+          delay: 0.7  // Reduced from 1.8s
         }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >

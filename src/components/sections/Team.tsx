@@ -3,18 +3,14 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import teamData from '@/data/team.json'
 
-interface TeamProps {
-  isLoading?: boolean
-}
-
-export default function Team({ isLoading = false }: TeamProps) {
+export default function Team() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-        delayChildren: isLoading ? 0.8 : 0.3
+        delayChildren: 0.3
       }
     }
   }
@@ -38,7 +34,7 @@ export default function Team({ isLoading = false }: TeamProps) {
   }
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

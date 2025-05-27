@@ -5,11 +5,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import sponsorData from '@/data/sponsors.json'
 
-interface SponsorsProps {
-  isLoading?: boolean
-}
-
-export default function Sponsors({ isLoading = false }: SponsorsProps) {
+export default function Partners() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -33,18 +29,26 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05,
-        delayChildren: isLoading ? 0.8 : 0.3
+        duration: 0.6,
+        delayChildren: 0.3
       }
     }
   }
 
-  const logoVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+  const headerVariants = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      scale: 1,
-      transition: { duration: 0.4, ease: "easeOut" }
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
     }
   }
 
@@ -61,13 +65,13 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
           className="text-center mb-16"
         >
           <motion.h2 
-            variants={logoVariants}
+            variants={headerVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-black mb-6 font-exo2"
           >
             Our Partners
           </motion.h2>
           <motion.div 
-            variants={logoVariants}
+            variants={headerVariants}
             className="w-24 h-1 bg-brand-red mx-auto"
           />
         </motion.div>
@@ -77,17 +81,14 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          variants={cardVariants}
           className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
         >
           
           {/* Primary Partners Row */}
           <div className="grid grid-cols-3 md:grid-cols-2 border-b border-gray-200">
-            <motion.div
-              variants={logoVariants}
-              className="col-span-2 md:col-span-1 group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-6 md:p-12 lg:p-16 border-r border-gray-200 flex items-center justify-center"
-              style={{ minHeight: '120px' }}
-            >
+            <div className="col-span-2 md:col-span-1 group cursor-pointer hover:bg-gray-50 transition-colors duration-300 p-6 md:p-12 lg:p-16 border-r border-gray-200 flex items-center justify-center"
+                 style={{ minHeight: '120px' }}>
               <Link href="/partners/silverstone" onClick={handlePartnerClick} className="flex items-center justify-center w-full h-full">
                 <div className="relative w-full h-16 md:h-24 lg:h-32 flex items-center justify-center">
                   <Image
@@ -99,13 +100,10 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
                   />
                 </div>
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              variants={logoVariants}
-              className="col-span-1 group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-6 md:p-12 lg:p-16 flex items-center justify-center"
-              style={{ minHeight: '120px' }}
-            >
+            <div className="col-span-1 group cursor-pointer hover:bg-gray-50 transition-colors duration-300 p-6 md:p-12 lg:p-16 flex items-center justify-center"
+                 style={{ minHeight: '120px' }}>
               <Link href="/partners/dla-town-planning" onClick={handlePartnerClick} className="flex items-center justify-center w-full h-full">
                 <div className="relative w-full h-16 md:h-24 lg:h-32 flex items-center justify-center">
                   <Image
@@ -117,17 +115,16 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
                   />
                 </div>
               </Link>
-            </motion.div>
+            </div>
           </div>
 
           {/* Supporting Partners Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 border-b border-gray-200">
             {sponsorData.sponsorCategories.secondary.sponsors.map((sponsor, index) => (
-              <motion.div
+              <div
                 key={sponsor.id}
-                variants={logoVariants}
                 className={`
-                  group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-3 md:p-6 grayscale hover:grayscale-0 flex items-center justify-center
+                  group cursor-pointer hover:bg-gray-50 transition-colors duration-300 p-3 md:p-6 grayscale hover:grayscale-0 flex items-center justify-center
                   ${index < sponsorData.sponsorCategories.secondary.sponsors.length - 1 && (index + 1) % (isMobile ? 2 : 4) !== 0 ? 'border-r border-gray-200' : ''}
                   ${index < 2 && isMobile ? 'border-b border-gray-200' : ''}
                 `}
@@ -144,18 +141,17 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
                     />
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Associate Partners Row */}
           <div className="flex flex-wrap justify-center">
             {sponsorData.sponsorCategories.supporting.sponsors.map((sponsor, index) => (
-              <motion.div
+              <div
                 key={sponsor.id}
-                variants={logoVariants}
                 className={`
-                  group cursor-pointer hover:bg-gray-50 transition-all duration-300 p-2 md:p-4 grayscale hover:grayscale-0 flex items-center justify-center
+                  group cursor-pointer hover:bg-gray-50 transition-colors duration-300 p-2 md:p-4 grayscale hover:grayscale-0 flex items-center justify-center
                   ${sponsorData.sponsorCategories.supporting.sponsors.length <= 3 ? 'w-1/3 md:w-1/6' : 'w-1/3 md:w-1/5 lg:w-1/6'}
                   ${index < sponsorData.sponsorCategories.supporting.sponsors.length - 1 ? 'border-r border-gray-200' : ''}
                 `}
@@ -172,7 +168,7 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
                     />
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>
@@ -186,7 +182,7 @@ export default function Sponsors({ isLoading = false }: SponsorsProps) {
           className="text-center mt-16"
         >
           <motion.div
-            variants={logoVariants}
+            variants={headerVariants}
             className="bg-white rounded-xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto"
           >
             <h3 className="text-2xl font-bold text-brand-black font-exo2 mb-4">

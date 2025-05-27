@@ -14,11 +14,7 @@ const iconMap = {
   TikTok: SolidTikTok
 }
 
-interface NavbarProps {
-  isLoading?: boolean
-}
-
-export default function Navbar({ isLoading = false }: NavbarProps) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -52,7 +48,7 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
         animate={{ y: 0 }}
         transition={{ 
           duration: 0.4, 
-          delay: isLoading ? 0.6 : 0.2  // Much faster - reduced from 2.2s to 0.6s
+          delay: 0.1  // Much faster
         }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${navbarBg}`}
       >

@@ -5,26 +5,21 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* White overscroll area */
     background-color: white;
-    /* Firefox */
     scrollbar-width: thin;
     scrollbar-color: #ef4530 transparent;
   }
  
   body {
     @apply bg-white text-brand-black font-inter antialiased;
-    /* Prevent overscroll bounce on some browsers */
     overscroll-behavior: none;
-    /* White background for overscroll areas */
     background-color: white;
   }
  
   h1, h2, h3, h4, h5, h6 {
     @apply font-exo2;
   }
-  
-  /* Ensure white background above content */
+ 
   #__next, .main-content {
     background-color: white;
   }
@@ -44,7 +39,6 @@
   }
 }
 
-/* Simple Cross-Browser Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -65,7 +59,6 @@
   opacity: 1;
 }
 
-/* Auto-hide when not scrolling */
 .scrollbar-hidden ::-webkit-scrollbar-thumb {
   opacity: 0;
 }
@@ -74,7 +67,6 @@
   opacity: 0.7;
 }
 
-/* Firefox auto-hide */
 .scrollbar-hidden {
   scrollbar-color: transparent transparent;
 }
@@ -83,16 +75,6 @@
   scrollbar-color: #ef4530 transparent;
 }
 
-/* White overscroll areas */
-html {
-  background: white;
-}
-
-body {
-  background: white;
-}
-
-/* iOS Safari overscroll fix */
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-overflow-scrolling: touch;

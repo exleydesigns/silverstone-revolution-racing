@@ -3,18 +3,14 @@ import { motion } from 'framer-motion'
 import { Zap, Target, Users } from 'lucide-react'
 import aboutData from '@/data/about.json'
 
-interface AboutProps {
-  isLoading?: boolean
-}
-
-export default function About({ isLoading = false }: AboutProps) {
+export default function About() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: isLoading ? 2.8 : 0.3
+        delayChildren: 0.3
       }
     }
   }
@@ -67,24 +63,22 @@ export default function About({ isLoading = false }: AboutProps) {
           </motion.p>
         </motion.div>
 
-        {/* Main Content Grid - Aligned at top */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
-          
-          {/* Left - Our Story */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={containerVariants}
-            className="space-y-6"
+        {/* Our Story - Full Width */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={containerVariants}
+          className="mb-20"
+        >
+          <motion.h3 
+            variants={itemVariants}
+            className="text-3xl md:text-4xl font-bold text-brand-black font-exo2 mb-8 text-center"
           >
-            <motion.h3 
-              variants={itemVariants}
-              className="text-3xl md:text-4xl font-bold text-brand-black font-exo2 mb-6"
-            >
-              Our Story
-            </motion.h3>
-            
+            Our Story
+          </motion.h3>
+          
+          <div className="max-w-4xl mx-auto space-y-6">
             {aboutData.story.map((paragraph, index) => (
               <motion.p
                 key={index}
@@ -94,54 +88,8 @@ export default function About({ isLoading = false }: AboutProps) {
                 {paragraph}
               </motion.p>
             ))}
-          </motion.div>
-
-          {/* Right - What is STEM Racing */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={containerVariants}
-            className="space-y-6"
-          >
-            <motion.h3 
-              variants={itemVariants}
-              className="text-3xl md:text-4xl font-bold text-brand-black font-exo2 mb-6"
-            >
-              What is STEM Racing?
-            </motion.h3>
-            
-            <motion.p
-              variants={itemVariants}
-              className="text-lg text-gray-700 font-inter leading-relaxed"
-            >
-              {aboutData.stemRacing.description}
-            </motion.p>
-
-            <motion.div 
-              variants={itemVariants}
-              className="space-y-4"
-            >
-              <h4 className="text-xl font-semibold text-brand-black font-exo2">
-                Competition Elements:
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {aboutData.stemRacing.elements.map((element) => (
-                  <motion.div
-                    key={element}
-                    variants={itemVariants}
-                    className="flex items-center space-x-2"
-                  >
-                    <div className="w-2 h-2 bg-brand-red rounded-full flex-shrink-0" />
-                    <span className="text-gray-700 font-inter text-sm">
-                      {element}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
 
         {/* Key Stats - 3 Wide */}
         <motion.div
@@ -169,7 +117,7 @@ export default function About({ isLoading = false }: AboutProps) {
           </div>
         </motion.div>
 
-        {/* Values Section - Better Styling */}
+        {/* Values Section */}
         <motion.div
           initial="hidden"
           whileInView="visible"
