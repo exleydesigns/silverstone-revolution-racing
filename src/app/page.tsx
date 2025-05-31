@@ -9,18 +9,20 @@ import Partners from '@/components/sections/Partners'
 
 export default function Home() {
   const [showEntryAnimation, setShowEntryAnimation] = useState(true)
+  const [animationsKey, setAnimationsKey] = useState(0)
 
   useEffect(() => {
     const handleBeforeUnload = () => {
       sessionStorage.setItem('hasNavigated', 'true')
     }
-
     window.addEventListener('beforeunload', handleBeforeUnload)
     return () => window.removeEventListener('beforeunload', handleBeforeUnload)
   }, [])
 
   const handleEntryComplete = () => {
     setShowEntryAnimation(false)
+    // Force re-render of animations
+    setAnimationsKey(prev => prev + 1)
   }
 
   return (
@@ -28,13 +30,15 @@ export default function Home() {
       {showEntryAnimation && (
         <EntryAnimation onComplete={handleEntryComplete} />
       )}
-      
+     
       <div className={showEntryAnimation ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}>
         <Navbar />
-        <Hero />
-        <About />
-        <CarShowcase />
-        <Partners />
+        <div key={animationsKey}>
+          <Hero />
+          <About />
+          <CarShowcase />
+          <Partners />
+        </div>
       </div>
     </>
   )

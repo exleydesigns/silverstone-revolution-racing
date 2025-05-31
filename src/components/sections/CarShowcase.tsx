@@ -13,8 +13,8 @@ export default function CarShowcase({ isLoading = false }: CarShowcaseProps) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: isLoading ? 3.2 : 0.5
+        staggerChildren: 0.15,
+        delayChildren: isLoading ? 3.2 : 0.3
       }
     }
   }
@@ -24,7 +24,7 @@ export default function CarShowcase({ isLoading = false }: CarShowcaseProps) {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 1, ease: "easeOut" }
+      transition: { duration: 0.8, ease: "easeOut" }
     }
   }
 
@@ -33,7 +33,7 @@ export default function CarShowcase({ isLoading = false }: CarShowcaseProps) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { duration: 0.6, ease: "easeOut" }
     }
   }
 
@@ -42,7 +42,7 @@ export default function CarShowcase({ isLoading = false }: CarShowcaseProps) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.4, ease: "easeOut" }
     }
   }
 
@@ -55,7 +55,7 @@ export default function CarShowcase({ isLoading = false }: CarShowcaseProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
           className="text-center mb-16"
         >
@@ -81,23 +81,23 @@ export default function CarShowcase({ isLoading = false }: CarShowcaseProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
-          className="relative flex flex-col items-center justify-center mb-20 h-96 md:h-[32rem]"
+          className="relative flex flex-col items-center justify-center mb-20 h-80 md:h-96 lg:h-[28rem]"
         >
           
-          {/* Background RR3 Text - positioned higher */}
+          {/* Background RR3 Text */}
           <motion.h3
             variants={textVariants}
-            className="absolute top-0 text-[12rem] md:text-[18rem] lg:text-[24rem] xl:text-[28rem] font-black font-exo2 text-gray-100 select-none leading-none z-0"
+            className="absolute top-4 md:top-0 text-[10rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-black font-exo2 text-gray-100 select-none leading-none z-0"
           >
             {carData.modelNumber}
           </motion.h3>
 
-          {/* Car Image - Much Larger */}
+          {/* Car Image - Responsive positioning */}
           <motion.div
             variants={carVariants}
-            className="relative z-10 mt-16 md:mt-24 w-full max-w-5xl"
+            className="relative z-10 mt-8 md:mt-16 lg:mt-20 w-full max-w-5xl"
           >
             <Image
               src="/images/car-rr3.png"
@@ -114,7 +114,7 @@ export default function CarShowcase({ isLoading = false }: CarShowcaseProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
           className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100"
         >
@@ -135,7 +135,8 @@ export default function CarShowcase({ isLoading = false }: CarShowcaseProps) {
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: index * 0.05, duration: 0.3 }}
+                  viewport={{ once: true }}
                   className="text-4xl md:text-5xl font-bold text-brand-red font-exo2 mb-2"
                 >
                   {stat.value}

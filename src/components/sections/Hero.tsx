@@ -1,6 +1,8 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
+import Button from '@/components/ui/Button'
 
 export default function Hero() {
   return (
@@ -26,7 +28,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
             duration: 0.6, 
-            delay: 0.2  // Much faster - reduced from 0.8s
+            delay: 0.2
           }}
         >
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-exo2 text-white mb-6">
@@ -36,7 +38,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
                 duration: 0.5, 
-                delay: 0.3  // Reduced from 1.0s
+                delay: 0.3
               }}
             >
               From the heart of
@@ -47,7 +49,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
                 duration: 0.5, 
-                delay: 0.4  // Reduced from 1.2s
+                delay: 0.4
               }}
             >
               British Motorsport
@@ -60,7 +62,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
             duration: 0.5, 
-            delay: 0.5  // Reduced from 1.4s
+            delay: 0.5
           }}
           className="text-base sm:text-lg md:text-xl lg:text-2xl font-light mb-10 max-w-3xl mx-auto font-inter text-gray-100 drop-shadow-md"
         >
@@ -72,24 +74,23 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
             duration: 0.5, 
-            delay: 0.6  // Reduced from 1.6s
+            delay: 0.6
           }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <motion.button 
-            className="btn-primary w-full sm:w-auto shadow-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Our Story
-          </motion.button>
-          <motion.button 
-            className="px-8 py-3 border-2 border-white hover:bg-white hover:text-brand-black text-white font-semibold rounded-lg transition-all duration-300 font-inter w-full sm:w-auto shadow-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Meet the Team
-          </motion.button>
+          <Link href="/progress">
+            <Button variant="primary" className="w-full sm:w-auto shadow-lg">
+              Our Story
+            </Button>
+          </Link>
+          <Link href="/team">
+            <Button 
+              variant="outline" 
+              className="w-full sm:w-auto shadow-lg bg-transparent text-white border-white hover:bg-white hover:text-brand-black"
+            >
+              Meet the Team
+            </Button>
+          </Link>
         </motion.div>
       </div>
 
@@ -99,7 +100,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ 
           duration: 0.6, 
-          delay: 0.7  // Reduced from 1.8s
+          delay: 0.7
         }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >

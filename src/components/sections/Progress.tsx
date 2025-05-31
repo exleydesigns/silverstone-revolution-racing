@@ -1,7 +1,9 @@
 'use client'
 import { motion } from 'framer-motion'
-import { CheckCircle, Clock, Target, Trophy, Calendar } from 'lucide-react'
+import { CheckCircle, Clock, Target, Trophy } from 'lucide-react'
 import progressData from '@/data/progress.json'
+import Link from 'next/link'
+import Button from '@/components/ui/Button'
 
 interface ProgressProps {
   isLoading?: boolean
@@ -14,41 +16,41 @@ export default function Progress({ isLoading = false }: ProgressProps) {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: isLoading ? 0.8 : 0.3
+        delayChildren: isLoading ? 0.8 : 0.2
       }
     }
   }
 
   const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  }
+
+  const cardVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  }
-
-  const milestoneVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.4, ease: "easeOut" }
     }
   }
 
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'completed':
-        return <CheckCircle className="text-green-600" size={24} />
+        return <CheckCircle className="text-green-600" size={20} />
       case 'current':
-        return <Clock className="text-brand-red" size={24} />
+        return <Clock className="text-brand-red" size={20} />
       case 'upcoming':
-        return <Target className="text-brand-blue" size={24} />
+        return <Target className="text-brand-blue" size={20} />
       case 'target':
-        return <Trophy className="text-yellow-600" size={24} />
+        return <Trophy className="text-yellow-600" size={20} />
       default:
-        return <Calendar className="text-gray-400" size={24} />
+        return <CheckCircle className="text-gray-400" size={20} />
     }
   }
 
@@ -69,14 +71,14 @@ export default function Progress({ isLoading = false }: ProgressProps) {
 
   return (
     <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Hero Section */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <motion.h1 
             variants={itemVariants}
@@ -97,12 +99,12 @@ export default function Progress({ isLoading = false }: ProgressProps) {
         </motion.div>
 
         {/* Timeline for each division */}
-        {progressData.divisions.map((division) => (
+        {progressData.divisions.map((division, divisionIndex) => (
           <motion.div
             key={division.name}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             variants={containerVariants}
             className="mb-20"
           >
@@ -112,10 +114,10 @@ export default function Progress({ isLoading = false }: ProgressProps) {
               className="text-center mb-12"
             >
               <div 
-                className="inline-flex items-center px-6 py-3 rounded-full font-inter font-semibold mb-4"
+                className="inline-flex items-center px-6 py-3 rounded-full font-inter font-semibold mb-4 border-2"
                 style={{ 
                   backgroundColor: `${division.color}20`,
-                  border: `2px solid ${division.color}`,
+                  borderColor: division.color,
                   color: division.color
                 }}
               >
@@ -131,51 +133,42 @@ export default function Progress({ isLoading = false }: ProgressProps) {
               </p>
             </motion.div>
 
-            {/* Timeline */}
+            {/* Timeline Container */}
             <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gray-200" />
+              {/* Timeline Line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gray-300" />
               <motion.div 
-                className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 top-0 w-1 bg-gradient-to-b from-brand-blue to-brand-red"
+                className="absolute left-1/2 transform -translate-x-1/2 top-0 w-0.5"
+                style={{ backgroundColor: division.color }}
                 initial={{ height: 0 }}
-                whileInView={{ height: division.status === 'completed' ? '100%' : '60%' }}
-                transition={{ duration: 1.5, delay: 0.5 }}
+                whileInView={{ height: division.status === 'completed' ? '100%' : '75%' }}
+                transition={{ duration: 1.5, delay: 0.3 }}
                 viewport={{ once: true }}
               />
 
               {/* Milestones */}
-              <div className="space-y-12">
+              <div className="space-y-16">
                 {division.milestones.map((milestone, index) => (
                   <motion.div
                     key={milestone.title}
-                    variants={milestoneVariants}
-                    className={`relative flex items-center ${
-                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    }`}
+                    variants={cardVariants}
+                    className="relative flex items-center"
                   >
-                    {/* Node */}
-                    <div className="absolute left-0 md:left-1/2 md:transform md:-translate-x-1/2 z-10">
-                      <motion.div 
-                        className="w-8 h-8 bg-white border-4 rounded-full flex items-center justify-center shadow-lg"
-                        style={{ borderColor: division.color }}
-                        whileHover={{ scale: 1.2 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
-                        {getStatusIcon(milestone.status)}
-                      </motion.div>
+                    {/* Timeline Node */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
+                      <div 
+                        className="w-6 h-6 rounded-full border-4 border-white shadow-lg"
+                        style={{ backgroundColor: division.color }}
+                      />
                     </div>
 
-                    {/* Content */}
-                    <div className={`w-full md:w-5/12 ml-12 md:ml-0 ${
-                      index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
-                    }`}>
-                      <motion.div 
-                        className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300"
-                        whileHover={{ y: -4 }}
-                      >
+                    {/* Card Content */}
+                    <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8 ml-auto' : 'pl-8 mr-auto'}`}>
+                      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-300">
                         {/* Status Badge */}
-                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold mb-4 border ${getStatusColor(milestone.status)}`}>
-                          {milestone.achievement}
+                        <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold mb-3 border ${getStatusColor(milestone.status)}`}>
+                          {getStatusIcon(milestone.status)}
+                          <span className="ml-2">{milestone.achievement}</span>
                         </div>
 
                         {/* Date */}
@@ -197,12 +190,15 @@ export default function Progress({ isLoading = false }: ProgressProps) {
                         <ul className="space-y-2">
                           {milestone.details.map((detail, detailIndex) => (
                             <li key={detailIndex} className="flex items-start space-x-2 text-sm text-gray-600 font-inter">
-                              <div className="w-1.5 h-1.5 bg-brand-red rounded-full mt-2 flex-shrink-0" />
+                              <div 
+                                className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                                style={{ backgroundColor: division.color }}
+                              />
                               <span>{detail}</span>
                             </li>
                           ))}
                         </ul>
-                      </motion.div>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
@@ -215,9 +211,9 @@ export default function Progress({ isLoading = false }: ProgressProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
-          className="text-center bg-gradient-to-r from-brand-blue/10 to-brand-red/10 rounded-2xl p-8 md:p-12"
+          className="text-center bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-200"
         >
           <motion.h2 
             variants={itemVariants}
@@ -235,12 +231,16 @@ export default function Progress({ isLoading = false }: ProgressProps) {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <button className="px-8 py-3 bg-brand-red hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300 font-inter">
-              Follow Our Updates
-            </button>
-            <button className="px-8 py-3 border-2 border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-semibold rounded-lg transition-all duration-300 font-inter">
-              Become a Partner
-            </button>
+            <Link href="/contact">
+              <Button variant="primary">
+                Follow Our Updates
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="secondary">
+                Become a Partner
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

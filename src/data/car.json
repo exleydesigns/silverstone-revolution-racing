@@ -1,6 +1,6 @@
 {
   "modelNumber": "RR2",
-  "description": "Our second-generation racing car, engineered for maximum performance in the Professional division. Every millimetre optimised for speed.",
+  "description": "Our second-generation racing car, engineered for maximum performance in the Development division. Every millimetre optimised for speed.",
   "performanceStats": [
     {
       "value": "40+",
@@ -8,7 +8,7 @@
       "unit": "mph"
     },
     {
-      "value": "0.8",
+      "value": "0.105",
       "metric": "Reaction Time",
       "unit": "seconds"
     },

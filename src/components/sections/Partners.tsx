@@ -30,17 +30,17 @@ export default function Partners() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        delayChildren: 0.3
+        delayChildren: 0.2
       }
     }
   }
 
   const headerVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.5, ease: "easeOut" }
     }
   }
 
@@ -48,7 +48,7 @@ export default function Partners() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.5, ease: "easeOut" }
     }
   }
 
@@ -60,7 +60,7 @@ export default function Partners() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
           className="text-center mb-16"
         >
@@ -72,15 +72,21 @@ export default function Partners() {
           </motion.h2>
           <motion.div 
             variants={headerVariants}
-            className="w-24 h-1 bg-brand-red mx-auto"
+            className="w-24 h-1 bg-brand-red mx-auto mb-8"
           />
+          <motion.p 
+            variants={headerVariants}
+            className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed"
+          >
+            Working with industry leaders who share our vision for excellence in STEM and motorsport, supporting our journey to the World Finals
+          </motion.p>
         </motion.div>
 
         {/* Single Partner Matrix Card */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={cardVariants}
           className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
         >
@@ -177,7 +183,7 @@ export default function Partners() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
           className="text-center mt-16"
         >

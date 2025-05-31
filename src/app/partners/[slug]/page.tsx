@@ -12,7 +12,6 @@ export async function generateStaticParams() {
     ...sponsorData.sponsorCategories.secondary.sponsors,
     ...sponsorData.sponsorCategories.supporting.sponsors
   ]
-
   return allPartners.map((partner) => ({
     slug: partner.id,
   }))
@@ -25,7 +24,7 @@ function findPartner(slug: string) {
     ...sponsorData.sponsorCategories.secondary.sponsors,
     ...sponsorData.sponsorCategories.supporting.sponsors
   ]
-  
+ 
   return allPartners.find(partner => partner.id === slug)
 }
 
@@ -77,17 +76,17 @@ export default async function PartnerPage({ params }: { params: Promise<{ slug: 
       {/* Content */}
       <main className="pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+         
           {/* Partner Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-brand-red/10 text-brand-red rounded-full font-inter text-sm font-semibold mb-6">
               {getTierName(partner.tier)}
             </div>
-            
+           
             <h1 className="text-4xl md:text-5xl font-bold text-brand-black mb-6 font-exo2">
               {partner.name}
             </h1>
-            
+           
             <div className="w-24 h-1 bg-brand-red mx-auto mb-8" />
           </div>
 

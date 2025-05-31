@@ -48,7 +48,7 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ 
           duration: 0.4, 
-          delay: 0.1  // Much faster
+          delay: 0.1
         }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${navbarBg}`}
       >
