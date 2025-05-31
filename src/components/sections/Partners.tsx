@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import sponsorData from '@/data/sponsors.json'
+import Button from '@/components/ui/Button'
 
 export default function Partners() {
   const [isMobile, setIsMobile] = useState(false)
@@ -18,7 +19,6 @@ export default function Partners() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Save scroll position when clicking partner
   const handlePartnerClick = () => {
     sessionStorage.setItem('scrollPosition', window.scrollY.toString())
     sessionStorage.setItem('referrerPage', '/')
@@ -82,13 +82,13 @@ export default function Partners() {
           </motion.p>
         </motion.div>
 
-        {/* Single Partner Matrix Card */}
+        {/* Partner Matrix Card */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={cardVariants}
-          className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
+          className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden mb-16"
         >
           
           {/* Primary Partners Row */}
@@ -185,7 +185,7 @@ export default function Partners() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
-          className="text-center mt-16"
+          className="text-center"
         >
           <motion.div
             variants={headerVariants}
@@ -198,13 +198,9 @@ export default function Partners() {
               Join our journey to the World Finals and support the next generation of STEM leaders
             </p>
             <Link href="/contact">
-              <motion.button
-                className="px-8 py-3 bg-brand-red hover:bg-red-600 text-white font-semibold rounded-lg transition-colors duration-300 font-inter"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <Button variant="primary" className="w-full sm:w-auto">
                 Get in Touch
-              </motion.button>
+              </Button>
             </Link>
           </motion.div>
         </motion.div>

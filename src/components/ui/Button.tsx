@@ -7,22 +7,24 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   size?: 'sm' | 'md' | 'lg'
   loading?: boolean
   children: React.ReactNode
+  asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = 'primary', size = 'md', loading = false, children, className = '', disabled, ...props }, ref) => {
-    const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 font-inter focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+    // Fixed sizing to ensure all buttons have same external dimensions
+    const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg font-inter focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed box-border'
     
     const sizeClasses = {
-      sm: 'px-6 py-2 text-sm',
-      md: 'px-8 py-3 text-base',
-      lg: 'px-10 py-4 text-lg'
+      sm: 'h-10 px-6 text-sm',
+      md: 'h-12 px-8 text-base', 
+      lg: 'h-14 px-10 text-lg'
     }
     
     const variantClasses = {
-      primary: 'bg-brand-red text-white hover:bg-red-600 focus:ring-brand-red border-2 border-brand-red',
-      secondary: 'bg-white text-brand-red border-2 border-brand-red hover:bg-brand-red hover:text-white focus:ring-brand-red',
-      outline: 'bg-transparent text-brand-red border-2 border-brand-red hover:bg-brand-red hover:text-white focus:ring-brand-red'
+      primary: 'bg-brand-red text-white hover:brightness-110 border-2 border-brand-red transition-none',
+      secondary: 'bg-white text-brand-red border-2 border-brand-red hover:bg-brand-red hover:text-white transition-colors duration-150',
+      outline: 'bg-transparent text-brand-red border-2 border-brand-red hover:bg-brand-red hover:text-white transition-colors duration-150'
     }
     
     const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`
@@ -34,7 +36,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || loading}
         whileHover={{ scale: disabled || loading ? 1 : 1.05 }}
         whileTap={{ scale: disabled || loading ? 1 : 0.95 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        transition={{ duration: 0.1, ease: "easeOut" }}
         {...props}
       >
         {loading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}

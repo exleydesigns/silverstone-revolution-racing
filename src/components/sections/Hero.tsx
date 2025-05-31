@@ -17,7 +17,6 @@ export default function Hero() {
           priority
           quality={90}
         />
-        {/* Stronger overlay for better readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/70" />
       </div>
 
@@ -26,20 +25,14 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.6, 
-            delay: 0.2
-          }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-exo2 text-white mb-6">
             <motion.span
               className="block leading-none drop-shadow-lg whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.5, 
-                delay: 0.3
-              }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
               From the heart of
             </motion.span>
@@ -47,10 +40,7 @@ export default function Hero() {
               className="block text-white leading-none italic mt-2 drop-shadow-lg whitespace-nowrap"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.5, 
-                delay: 0.4
-              }}
+              transition={{ duration: 0.5, delay: 0.4 }}
             >
               British Motorsport
             </motion.span>
@@ -60,10 +50,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.5, 
-            delay: 0.5
-          }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="text-base sm:text-lg md:text-xl lg:text-2xl font-light mb-10 max-w-3xl mx-auto font-inter text-gray-100 drop-shadow-md"
         >
           Professional STEM Racing team competing at the highest level from Silverstone UTC
@@ -72,10 +59,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.5, 
-            delay: 0.6
-          }}
+          transition={{ duration: 0.5, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Link href="/progress">
@@ -86,7 +70,7 @@ export default function Hero() {
           <Link href="/team">
             <Button 
               variant="outline" 
-              className="w-full sm:w-auto shadow-lg bg-transparent text-white border-white hover:bg-white hover:text-brand-black"
+              className="w-full sm:w-auto shadow-lg bg-transparent text-white border-white hover:bg-white hover:text-brand-black focus:ring-white !text-white hover:!text-brand-black"
             >
               Meet the Team
             </Button>
@@ -98,10 +82,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ 
-          duration: 0.6, 
-          delay: 0.7
-        }}
+        transition={{ duration: 0.6, delay: 0.7 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.div 
