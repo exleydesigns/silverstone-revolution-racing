@@ -1,18 +1,30 @@
+'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Loader2 } from 'lucide-react'
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline'
   size?: 'sm' | 'md' | 'lg'
   loading?: boolean
   children: React.ReactNode
-  asChild?: boolean
+  className?: string
+  disabled?: boolean
+  onClick?: () => void
+  type?: 'button' | 'submit' | 'reset'
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'primary', size = 'md', loading = false, children, className = '', disabled, ...props }, ref) => {
-    // Fixed sizing to ensure all buttons have same external dimensions
+  ({ 
+    variant = 'primary', 
+    size = 'md', 
+    loading = false, 
+    children, 
+    className = '', 
+    disabled, 
+    onClick,
+    type = 'button'
+  }, ref) => {
     const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg font-inter focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed box-border'
     
     const sizeClasses = {
@@ -32,12 +44,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <motion.button
         ref={ref}
+        type={type}
         className={classes}
         disabled={disabled || loading}
+        onClick={onClick}
         whileHover={{ scale: disabled || loading ? 1 : 1.05 }}
         whileTap={{ scale: disabled || loading ? 1 : 0.95 }}
         transition={{ duration: 0.1, ease: "easeOut" }}
-        {...props}
       >
         {loading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
         {children}

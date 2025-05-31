@@ -11,8 +11,8 @@ module.exports = {
         'xs': '375px',
       },
       fontFamily: {
-        'exo2': ['"Exo 2"', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif'],
+        'exo2': ['var(--font-exo2)', 'sans-serif'],
+        'inter': ['var(--font-inter)', 'sans-serif'],
       },
       colors: {
         'brand-red': '#ef4530',

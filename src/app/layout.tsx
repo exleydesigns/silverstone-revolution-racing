@@ -1,7 +1,21 @@
 import type { Metadata } from 'next'
+import { Inter, Exo_2 } from 'next/font/google'
 import './globals.css'
 import Footer from '@/components/layout/Footer'
 import ScrollManager from '@/components/ui/ScrollManager'
+
+// Configure fonts
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
+const exo2 = Exo_2({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-exo2',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://silverstonerevolutionracing.com'),
@@ -64,9 +78,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
 }
 
 export default function RootLayout({
@@ -75,13 +86,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en-GB" className="bg-white">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <link rel="canonical" href="https://silverstonerevolutionracing.com" />
-      </head>
+    <html lang="en-GB" className={`bg-white ${inter.variable} ${exo2.variable}`}>
       <body className="antialiased bg-white">
         <ScrollManager />
         <main className="main-content bg-white">{children}</main>

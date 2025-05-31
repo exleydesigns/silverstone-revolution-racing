@@ -11,13 +11,14 @@
   }
  
   body {
-    @apply bg-white text-brand-black font-inter antialiased;
+    @apply bg-white text-brand-black antialiased;
+    font-family: var(--font-inter), sans-serif;
     overscroll-behavior: none;
     background-color: white;
   }
  
   h1, h2, h3, h4, h5, h6 {
-    @apply font-exo2;
+    font-family: var(--font-exo2), sans-serif;
   }
  
   #__next, .main-content {

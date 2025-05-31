@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 import sponsorData from '@/data/sponsors.json'
 
 function findPartner(slug: string) {

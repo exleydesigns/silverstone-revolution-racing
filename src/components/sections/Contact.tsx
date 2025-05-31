@@ -168,7 +168,7 @@ export default function Contact() {
           variants={containerVariants}
           className="grid md:grid-cols-3 gap-6 mb-16"
         >
-          {contactOptions.map((option, index) => (
+          {contactOptions.map((option) => (
             <motion.div
               key={option.title}
               variants={cardVariants}
